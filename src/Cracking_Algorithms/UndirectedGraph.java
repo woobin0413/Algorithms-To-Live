@@ -13,8 +13,8 @@ import java.util.StringTokenizer;
  * BufferedReader
  * import java.io.BufferedReader;
  * import java.io.InputStreamReader;
- * ÇÑ¹ø¿¡ ´Ù·®À¸·Î °¡Á®¿Í Ä³¸¯ÅÍ ¹öÆÛ¸µÀ» ÇÏ¿© 
- * ¼Óµµ°¡ ½ºÄÉ³Ê º¸´Ù ºü¸£´Ù.
+ * í•œë²ˆì— ë‹¤ëŸ‰ìœ¼ë¡œ ê°€ì ¸ì™€ ìºë¦­í„° ë²„í¼ë§ì„ í•˜ì—¬ 
+ * ì†ë„ê°€ ìŠ¤ì¼€ë„ˆ ë³´ë‹¤ ë¹ ë¥´ë‹¤.
  */
 public class UndirectedGraph {
 
@@ -24,7 +24,7 @@ public class UndirectedGraph {
 	public static void main(String[] args) throws Exception {
 		
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	//Æ¯Á¤ ¹®ÀÚ·Î ±¸ºĞµÇ¾îÀÖ´Â ¹®ÀÚ¿­À» ¾ÆÁÖ ½±°Ô Ã³¸®ÇÒ ¼ö ÀÖ´Ù
+	//íŠ¹ì • ë¬¸ìë¡œ êµ¬ë¶„ë˜ì–´ìˆëŠ” ë¬¸ìì—´ì„ ì•„ì£¼ ì‰½ê²Œ ì²˜ë¦¬í•  ìˆ˜ ìˆë‹¤
 	StringTokenizer st = new StringTokenizer(br.readLine());
 	//v = node, e = edge
 	v = Integer.parseInt(st.nextToken());
@@ -32,21 +32,20 @@ public class UndirectedGraph {
 	
 	con = new ArrayList[v+1];
 	conv = new ArrayList[v+1];
-	
-	//Node ¸¸Å­ array »ı¼º
+	//Node ë§Œí¼ array ìƒì„±
 	for (int i = 1; i<=v; i++) {
 		con[i] = new ArrayList<>();
 		conv[i] = new ArrayList<>();
 	}
-	//Edge ¸¸µé¶§
+	//Creating an edge
 	//a->b, b->a
 	for (int i = 1; i <= e; i++) {
 		StringTokenizer st1 = new StringTokenizer(br.readLine());
 		int a = Integer.parseInt(st1.nextToken());
 		int b = Integer.parseInt(st1.nextToken());
 		int c = Integer.parseInt(st1.nextToken());
-		//conv ´Â °¡ÁßÄ¡ °ü¸®¿ë arraylist ÀÌ¸ç
-		//Ãâ¹ßÁ¡, µµÂøÁ¡ °¡ÁßÄ¡ ¸ğµÎ °ü¸®µÈ´Ù.
+		//conv ëŠ” ê°€ì¤‘ì¹˜ ê´€ë¦¬ìš© arraylist ì´ë©°
+		//ì¶œë°œì , ë„ì°©ì  ê°€ì¤‘ì¹˜ ëª¨ë‘ ê´€ë¦¬ëœë‹¤.
 		con[a].add(b);
 		conv[a].add(c);
 		
