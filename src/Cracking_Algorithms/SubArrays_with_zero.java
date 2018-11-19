@@ -1,5 +1,6 @@
 package Cracking_Algorithms;
 
+import java.sql.Array;
 import java.util.*;
 import java.lang.*;
 import java.io.*;
@@ -11,9 +12,16 @@ import java.io.*;
 
 public class SubArrays_with_zero {
 
+	public static void calculation(int[] arr) {
+		
+	}
 	
-
 	public static void main(String[] args) throws IOException {
+		Map m1 = new HashMap(); 
 	
+		int[] arr = { 4,2,-3,-1,0,4};
+		
+		calculation(arr);
+
 	}
 }
