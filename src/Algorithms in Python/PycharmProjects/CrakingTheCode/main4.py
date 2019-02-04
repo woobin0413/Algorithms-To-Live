@@ -21,5 +21,4 @@ if __name__ == '__main__':
     new_robot = Robot()
     arr = ['33', '42', '21']
     print new_robot.binCount(arr, 10)
-/Users/Woobin/PycharmProjects/CrakingTheCode/main2.py
 
