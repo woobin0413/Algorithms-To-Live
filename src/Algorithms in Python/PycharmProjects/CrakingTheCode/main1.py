@@ -28,4 +28,4 @@ def countSetBits(x):
     return(0 if(x % 2) == 0 else 1) + countSetBits(x/2)
 
 if __name__ == '__main__':
-    print iterateNumber(17)
+    print (iterateNumber(17))
