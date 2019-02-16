@@ -1,48 +1,70 @@
 # -*- coding: utf-8 -*-
 # DFS (DEPTH FIRST SEARCH) (stack), BFS (BREATH FIRST SEARCH) (queue)
-# Breadth First Search or BFS for a Graph
-# without importing queue library
-from collections import defaultdict  as dict
-class Graph:
+# in-order 1,3,5,7,8,10
+# when no child node has no more of sub tree, it's called, "leaf-node"
+# time complexity for search : o(n^2)
 
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+# retrieve, insert, delete, create, destroy, isEmpty, tree traverse methods
+class BinarySearchTree:
     def __init__(self):
+        self.root = None
 
-        self.graph = dict(list)
 
-    def addEdge(self, u, v):
-        self.graph[u].append(v)
+    def find(self, value):
+        if self.findNode(value,self.root) is False:
+            return False
+        else:
+            return True
 
-    def BFS(self, s):
-        # Mark all the vertices as not visited
-        visited = [False] * (len(self.graph))
-        queue = []
-        # Mark the source node as
-        # visited and enqueue it
-        queue.append(s)
-        visited[s] = True
 
-        # Get all adjacent vertices of the
-        # dequeued vertex s. If a adjacent
-        # has not been visited, then mark it
-        # visited and enqueue it
-        while queue:
-            s = queue.pop()
-            print(str(s) + " ")
+    def findNode(self, value, cur):
+        if cur:
+            if value == cur.value:
+                return cur
+            elif value < cur.value:
+                return self.findNode(self, value, cur.left)
+            else:
+                return self.findNode(self, value, cur.right)
+        else:
+            return False
 
-            for i in self.graph[s]:
-                if visited[i] == False:
-                    queue.append(i)
-                    visited[i] = True
-g = Graph()
-g.addEdge(0, 1)
-g.addEdge(0, 2)
-g.addEdge(1, 2)
-g.addEdge(2, 0)
-g.addEdge(2, 3)
-g.addEdge(3, 3)
 
-print ("Following is Breadth First Traversal"
-                  " (starting from vertex 2)")
-g.BFS(2)
+    def insert(self, value):
+        if(self.root):
+            return self.insertNode(value,self.root)
+        else:
+            self.root = value
 
+    def insertNode(self, value, cur):
+        if(value<=cur.value):
+            if(cur.left):
+                self.insertNode(value, cur.left)
+            else:
+                cur.left = Node(value)
+        elif (value>cur.value):
+
+            if(cur.right):
+                self.insertNode(value, cur.right)
+            else:
+                cur.right = Node(value)
+
+    def traverse(self):
+        return self.traverseNode(self.root)
+
+    def traverseNode(self, cur):
+        result = []
+        if(cur is not None):
+            result.extend([cur.value])
+        if(cur.left is not None):
+            result.extend(self.traverseNode(cur.left))
+        if(cur.right is not None):
+            result.extend(self.traverseNode(cur.right))
+        return result
 

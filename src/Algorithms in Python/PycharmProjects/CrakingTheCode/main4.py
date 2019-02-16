@@ -3,6 +3,8 @@ class Robot:
         if(bool(arr)):
             cache = []
             count = 0
+
+
             for i in range(0, len(arr)):
                 # same value in cache array then remove the value
                 if arr[i] in cache:

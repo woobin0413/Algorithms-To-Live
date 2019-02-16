@@ -11,11 +11,11 @@
 #     # arrElement.append(a)
 #     arrElement += (elements).strip().replace(' ', '')
 result = ''
-for _ in range(input()):
+for _ in range (int(input())):
     arrLen = input()
-    arr = (map(int, raw_input().strip().split()))
+    arr = (int, input().strip().split())
     pos = -1
-    for i in range(arrLen):
+    for i in range(int(arrLen)):
         if arr[i] == 0:
             pos += 1
             # [1, 0, 0, 1, 0] 처음 첫번쨰에서 검사해서 0이아니면 넘어가지만
@@ -23,4 +23,4 @@ for _ in range(input()):
 
             arr[i], arr[pos] = arr[pos], arr[i]
 
-    print str(arr).strip().replace(',', '').replace('[','').replace(']', '')
+    print (arr).strip().replace(',', '').replace('[','').replace(']', '')
