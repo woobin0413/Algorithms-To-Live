@@ -102,6 +102,25 @@ public class Array_and_string {
 		}
 		System.out.println(new_str);
 	}
+	//time complexity => O(p+k^2)
+	public static String redundantStr(String str){
+		int count = 1;
+//		String new_str = Character.toString(str.charAt(0));
+		char last = str.charAt(0);
+		String new_str = "";
+		for (int i = 0; i < str.length(); i++) {
+			if(str.charAt(i) == last) {
+				count++;
+			} else {
+				new_str += last + "" + count;
+				last = str.charAt(i);
+				count = 1;
+			}
+		}
+		return new_str + last + count;
+		
+	}
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -109,9 +128,11 @@ public class Array_and_string {
 
 		// System.out.println(permutation("dcbba","cbbad"));
 		// System.out.println('\0');
-		String str = "hello my name is Ben";
-		char[] ch_str = str.toCharArray();
+//		String str = "hello my name is Ben";
+//		char[] ch_str = str.toCharArray();
 
-		replaceSpace(ch_str);
+//		replaceSpace(ch_str);
+		System.out.println(redundantStr("abbcddfff"));
+		System.out.println(1+ String.valueOf(323).length());
 	}
 }
