@@ -1,0 +1,94 @@
+package Cracking_Algorithms;
+import java.util.Arrays;
+
+public class Array_and_string {
+
+	//check boolean array if str has a unique
+	//char stored in boolean type array
+	
+	public static boolean isUniqueChars(String str){
+		if(str.length() > 256) {
+			return false;
+		} else {
+			boolean[] char_set = new boolean[256];
+			for (int i = 0; i < str.length(); i++) {
+				int value = str.charAt(i);
+				if(char_set[value]){
+					return false;
+				} char_set[value] = true;
+			}
+		} return true;
+	}
+	//O(n^2) = time complexity, O(1) space complexity
+	public static boolean isUniqueChars_bit_vector(String str){
+		if(str.length() > 26) {
+			return false;
+		} 
+			int checker = 0;
+			for (int i = 0; i < str.length(); i++) {
+				// using charAt(i) - 'a';
+				// 'c' - 'a' = 2
+				// 'l' - 'a' = 11
+				// str = 'cat'
+				int value = str.charAt(i) - 'a';
+				if((checker & (1 << value)) > 0) {
+					return false;
+				} 
+				checker |= (1 << value);
+			} 
+		return true;
+	}
+	
+//p222
+	public static String sort (String str){
+		
+		char[] content = str.toCharArray();
+		//c d == dc
+		//문자열을 정렬해서 저장한다.
+		Arrays.sort(content);
+		return new String(content);
+	}
+	
+	public static boolean permutation(String str1, String str2){
+//		String s1 = str1.replaceAll("\\s+","");
+//		String s2 = str2.replaceAll("\\s+","");;
+//		
+//		if(s1.length() != s2.length()){
+//			return false;
+//		}
+//
+//		return sort(s1).equals(sort(s2));
+		
+		//method 2
+		if (str1.length() != str2.length()){
+			return false;
+		} else {
+			//ASCII max = 256
+			int [] letters = new int[256];
+			char [] s_array = str1.toCharArray();
+			for (char c : s_array) {
+				letters[c]++;
+				System.out.println(letters[c]);
+			}
+			for (int i = 0; i < str2.length(); i++) {
+				//decimal value
+				// int x = str.charAt(i) c => 99
+				// char x = str.charAt(i) c => c
+				int c = str2.charAt(i);
+				if(--letters[c] < 0){					
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//System.out.println(isUniqueChars("jowbs"));
+		
+		System.out.println(permutation("dcbba","cbbad"));
+		
+		}
+	}
+
