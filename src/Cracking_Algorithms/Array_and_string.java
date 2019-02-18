@@ -1,4 +1,5 @@
 package Cracking_Algorithms;
+import java.sql.Array;
 //cntl + shift + f for reindent
 import java.util.Arrays;
 
@@ -121,6 +122,23 @@ public class Array_and_string {
 		
 	}
 	
+	public static boolean isRotation(String s1, String s2){
+//		String new_s1 = s1.replaceAll("\\s+","");
+//		String new_s2 = s2.replaceAll("\\s+","");
+//		char[] content = new_s1.toCharArray();
+//		char[] content2 = new_s2.toCharArray();
+//		Arrays.sort(content);
+//		Arrays.sort(content2);
+//		
+//		return (Arrays.equals(content, content2));
+		
+//		book solution -->
+		int len = s1.length();
+		if(len == s2.length() && len > 0){
+			String s1s1 = s1 + s1;
+			return isRotation(s1s1, s2);
+		}	return false;
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -132,7 +150,8 @@ public class Array_and_string {
 //		char[] ch_str = str.toCharArray();
 
 //		replaceSpace(ch_str);
-		System.out.println(redundantStr("abbcddfff"));
-		System.out.println(1+ String.valueOf(323).length());
+//		System.out.println(redundantStr("abbcddfff"));
+		System.out.println(isRotation("waterbottle", "erbottlewat"));
+		
 	}
 }
