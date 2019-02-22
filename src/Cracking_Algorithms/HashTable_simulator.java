@@ -55,6 +55,23 @@ public class HashTable_simulator {
 		return result;
 	}
 	
+	public static boolean hashingDelete(int key){
+		int new_index = key%hashSize;
+		boolean result = false;
+	
+		if(temp_hash.contains(key)) {
+			temp_hash.remove(new_index);
+			result = true;	
+		} 
+		
+		else {
+			result = false;
+		}	
+		
+		return result;
+	
+	}
+	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -72,7 +89,8 @@ public class HashTable_simulator {
 		//System.out.println(hashingSearch(15));
 		
 		
-		System.out.println(hashingInsert(57,45));
+//		System.out.println(hashingInsert(57,45));
+		System.out.println(hashingDelete(14));
 		
 	}
 

@@ -134,10 +134,13 @@ public class Array_and_string {
 		
 //		book solution -->
 		int len = s1.length();
+		boolean result = false;
 		if(len == s2.length() && len > 0){
 			String s1s1 = s1 + s1;
-			return isRotation(s1s1, s2);
-		}	return false;
+			isRotation(s1s1, s2);
+			result = true;
+			
+		}	return result;
 	}
 
 	public static void main(String[] args) {
