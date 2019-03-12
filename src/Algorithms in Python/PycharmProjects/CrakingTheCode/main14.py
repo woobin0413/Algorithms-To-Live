@@ -14,9 +14,9 @@ def inorderTraversal(root):
             temp_node = stack[len(stack) - 1]
             stack.pop()
 
-                print (temp_node.data, end = " ")
+            print (temp_node.data, end = " ")
 
-                temp_node = temp_node.right
+            temp_node = temp_node.right
 
 # Recrusive answer
 
