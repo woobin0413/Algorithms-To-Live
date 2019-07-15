@@ -2,7 +2,7 @@
 # https://practice.geeksforgeeks.org/problems/convert-time-from-12-hour-to-24-hour-format/0/?ref=self
 
 for _ in range(input()):
-    t = raw_input()
+    t = input()
 # t = '07:05:45PM'
 
     if(t[-2:] == 'PM'):

@@ -1,26 +1,19 @@
+def dominantIndex(nums):
+    max1 = 0
+    max2 = 0
 
-def twoSum(nums, target):
-    """
-    :type nums: List[int]
-    :type target: int
-    :rtype: List[int]
-    """
+    for num in nums:
+        if num > max1:
+            max2 = max1
+            max1 = num
+        elif num > max2:
+            max2 = num
 
-    list = []
-    temp = 0
-    for x in range(len(nums)):
-        temp = 0
-        temp = target - nums[x]
+    if max1 >= max2*2:
+        return nums.index(max1)
+    else:
+        return -1
 
-        if temp in nums and temp not in list:
-            if nums.index(temp) ==
-                continue
-            else:
-                list.append(x)
-    return list
-
-if __name__=='__main__':
-
-    nums = [3, 3]
-    target = 6
-    print(twoSum(nums,target))
+if __name__ == '__main__':
+    nums = [1,3,2,6]
+    print(dominantIndex(nums))

@@ -41,7 +41,7 @@ if __name__=='__main__':
     t = int(input())
     for i in range(t):
         n = int(input())
-        arr = raw_input().strip().split()
+        arr = input().strip().split()
         tree = Tree()
         lis=[]
         root1 = None

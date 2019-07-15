@@ -4,7 +4,7 @@
 
 testCase = input()
 for n in range(0, testCase):
-    element = raw_input()
+    element = input()
     eachStreet = element.split()
     eachHouse = int(eachStreet[0])
     eachMoney = int(eachStreet[1])
