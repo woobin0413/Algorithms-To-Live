@@ -6,7 +6,11 @@ namespace Let_s_go_Amazon
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
+            _771 a = new _771();
+            Console.WriteLine(a.NumJewelsInStones("aA", "aAAbbbb"));
+
+            //Console.WriteLine("Hello World!");
         }
     }
 }
